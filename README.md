@@ -20,7 +20,7 @@
     - 运行npm install 等待安装即可
 
 
-2. 资源代码目录（根据demo）：
+2. 资源代码目录（如果不需要sprite组合，请在gulpfile.js文件中task:pictureInit下的sprite任务，否则会报错）：
 
     - 资源目录src
 
@@ -38,7 +38,7 @@
     3-js存放js组件，以及一些通用方法
 
     4-scss存放相关公用样式、组件样式、sprite相关类样式
-    
+
         ├─commonHtml
         │      header.html
         │      footer.html
