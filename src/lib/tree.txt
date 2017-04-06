@@ -1,0 +1,32 @@
+卷 系统 的文件夹 PATH 列表
+卷序列号为 0000-6B3E
+C:.
+│  tree.txt
+│  
+├─commonHtml
+│      header.html
+│      
+├─images
+│  └─sprite
+│      ├─a
+│      │      a1.png
+│      │      a2.png
+│      │      a3.png
+│      │      b1.jpg
+│      │      
+│      └─index
+│              fork.png
+│              github.png
+│              twitter.png
+│              
+├─js
+│      jquery-1.9.1.min.js
+│      lib.js
+│      
+└─scss
+        a-sprite.scss
+        balbala.scss
+        base.scss
+        index-sprite.scss
+        sprite-mixin.scss
+        

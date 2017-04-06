@@ -1,0 +1,8 @@
+${{options}}:'/images/sprites/{{spritesheet.escaped_image}}';
+{{#items}}
+	${{name}} : {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} ${{../options}} {{name}};
+{{/items}}
+
+$spritesheet-sprites: {{#items}}${{name}} {{/items}};
+
+@include sprites($spritesheet-sprites)
