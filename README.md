@@ -14,18 +14,18 @@
 
 1. 依赖安装
 
-* 安装nodejs 本机采用v6.10.1版本
-* git clone git@github.com:li2568261/gulp-multipage.git
-* 在当前目录下打开命令行（tips：按住shift点击鼠标右键可在菜单处快速打开）
-* 运行npm install 等待安装即可
+    - 安装nodejs 本机采用v6.10.1版本
+    - git clone git@github.com:li2568261/gulp-multipage.git
+    - 在当前目录下打开命令行（tips：按住shift点击鼠标右键可在菜单处快速打开）
+    - 运行npm install 等待安装即可
 
 
 2. 资源代码目录（根据demo）：
 
-* 资源目录src
+    - 资源目录src
 
 
-* src的lib目录存放公用资源:
+    - src的lib目录存放公用资源:
   
 
     ```
@@ -46,7 +46,7 @@
     ```
    
    
-* pages目录不同的页面新建不同的文件夹，里面都存在相同的目录结构：
+    - pages目录不同的页面新建不同的文件夹，里面都存在相同的目录结构：
 
 
     ```
@@ -105,7 +105,9 @@
     
 4. 资源导出目录
 
+
 >资源导出目录dist为文件资源导出目录，需要配合启动服务器进行处理分为两个文件夹，images和pages；images仅存放通用的图片资源。pages目录结构和资源目录一致
+
 
 5.运行模式
 
