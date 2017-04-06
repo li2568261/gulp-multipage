@@ -9,16 +9,21 @@
 > * 处理js（模块化开发，压缩合并混淆）
 > * html动态更新css，js引用的md5码
 
+项目链接：[gulp-multipage](https://github.com/li2568261/gulp-multipage)
 
 ### 使用方法
 
 #### 1. 依赖安装
 
-    - 安装nodejs 本机采用v6.10.1版本
-    - git clone git@github.com:li2568261/gulp-multipage.git
-    - 在当前目录下打开命令行（tips：按住shift点击鼠标右键可在菜单处快速打开）
-    - 运行npm install 等待安装即可
+    - 安装nodejs 本机采用v6.10.1版本;
 
+    - git clone git@github.com:li2568261/gulp-multipage.git;
+
+    - 在当前目录下打开命令行（tips：按住shift点击鼠标右键可在菜单处快速打开）;
+
+    - 运行npm install 等待安装即可;
+
+ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm install操作
 
 #### 2. 资源代码目录（如果不需要雪碧图功能，请在gulpfile.js文件中的task:pictureInit删除sprite任务，否则会报错）：
 
@@ -31,13 +36,13 @@
     ```
     目前主要包含三个目录:
 
-    1-commonHtml存放页面公用部分
+    commonHtml存放页面公用部分
 
-    2-images存放相关图片，下面得sprite存放合成雪碧图相关图片
+    images存放相关图片，下面的sprite存放合成雪碧图相关图片
 
-    3-js存放js组件，以及一些通用方法
+    js存放js组件，以及一些通用方法
 
-    4-scss存放相关公用样式、组件样式、sprite相关类样式
+    scss存放相关公用样式、组件样式、sprite相关类样式
 
         ├─commonHtml
         │      header.html
@@ -72,6 +77,7 @@
             └─scss
                index.scss
     ```
+
 
 #### 3. 页面资源配置
 
