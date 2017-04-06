@@ -30,10 +30,15 @@
 
     ```
     目前主要包含三个目录:
+
     1-commonHtml存放页面公用部分
+
     2-images存放相关图片，下面得sprite存放合成雪碧图相关图片
+
     3-js存放js组件，以及一些通用方法
+
     4-scss存放相关公用样式、组件样式、sprite相关类样式
+    
         ├─commonHtml
         │      header.html
         │      footer.html
