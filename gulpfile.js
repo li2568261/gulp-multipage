@@ -140,7 +140,7 @@ gulp.task('pub',['pictureInit','moduleRun']);
 //开发
 gulp.task('dev',['pictureInit','moduleRun'],function(){
 
-  var pagesList = fs.readdirSync(pagePath);
+  var pagesList = Object.keys(pagesConfig);
 
   pagesList.forEach(function(pagename,i) {
     var curPath = path.join(pagePath,pagename);
