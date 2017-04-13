@@ -5,14 +5,19 @@ C:.
 ©¦  
 ©À©¤commonHtml
 ©¦      header.html
+©¦      record-dialog.html
 ©¦      
 ©À©¤images
+©¦  ©¦  close.png
+©¦  ©¦  header-img.png
+©¦  ©¦  wait-img.gif
+©¦  ©¦  
 ©¦  ©¸©¤sprite
 ©¦      ©À©¤a
 ©¦      ©¦      a1.png
 ©¦      ©¦      a2.png
 ©¦      ©¦      a3.png
-©¦      ©¦      b1.jpg
+©¦      ©¦      a4.png
 ©¦      ©¦      
 ©¦      ©¸©¤index
 ©¦              fork.png
@@ -20,13 +25,18 @@ C:.
 ©¦              twitter.png
 ©¦              
 ©À©¤js
+©¦      bscroll.min.js
+©¦      common.js
 ©¦      jquery-1.9.1.min.js
 ©¦      lib.js
 ©¦      
-©¸©¤scss
-        a-sprite.scss
-        balbala.scss
-        base.scss
-        index-sprite.scss
-        sprite-mixin.scss
-        
+©À©¤scss
+©¦      a-sprite.scss
+©¦      balbala.scss
+©¦      base.scss
+©¦      dialog.scss
+©¦      index-sprite.scss
+©¦      reset.scss
+©¦      sprite-mixin.scss
+©¦      
+©¸©¤sprite

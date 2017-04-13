@@ -44,7 +44,7 @@ gulp.task("sprite",["spriteTaskListInit"],function(){
 })
 
 gulp.task("images",function(){
-  buildFuc.buildImg(pagePath,path.join(distPath,'/pages/'));
+  buildFuc.buildImg(path.join(libPath,'/images/'),path.join(distPath,'/images/'));
 })
 
 /*---------------------------------------------*/
@@ -63,6 +63,7 @@ gulp.task("taskInit",function(){
         buildFuc.buildJs(config.js);
         buildFuc.buildSass(config.sass);
         buildFuc.buildHtml(config.page);
+        buildFuc.buildImg(config.images.src_images,config.images.dist_images)
     }
 
     for(let key in pagesConfig){
@@ -88,6 +89,10 @@ gulp.task("taskInit",function(){
         moduleConfig.js._jsDistName = key+".min.js";
         moduleConfig.js._jsDistDir = path.join(distPath,'/pages/'+key+'/js/');
 
+        moduleConfig.images = {};
+        moduleConfig.images.src_images = path.join(pagePath,'/'+key+'/images/');
+        moduleConfig.images.dist_images = path.join(distPath,'/pages/'+key+'/images/');
+
         buildModule(moduleConfig)
         taskArr.push(moduleConfig.js.name,moduleConfig.sass.name,moduleConfig.page.name);
         jsTaskList.push(moduleConfig.js.name);
@@ -106,11 +111,16 @@ gulp.task("moduleRun",['taskInit'],function(){
 
 //md5命替换
 gulp.task('rev', function () {
-  return gulp.src([path.join(distPath,'/pages/**/*.json'),path.join(distPath,"/pages/**/*.html")])
+  return gulp.src([path.join(distPath,'/**/*.json'),path.join(distPath,"/pages/**/*.+(html|css|js)")])
       .pipe(revCollector({
           replaceReved: true,
       }))
       .pipe(gulp.dest(path.join(distPath,'/pages/')));
+})
+
+//添加根目录前缀
+gulp.task('prefix',function(){
+
 })
 
 gulp.task('pictureInit',['sprite','images'])

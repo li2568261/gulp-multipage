@@ -1,1 +1,213 @@
-html{background: #fff;}
+@mixin table-icon{
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+}
+
+body{
+	background:#3eb3f5;
+	width: 100%;
+	overflow: hidden;
+}
+
+.flex-wrap{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 100vh;
+}
+
+.record-top{
+	display: flex;
+	width: 590px;
+	flex: 0 0 90px;
+	padding-top: 10px;
+	justify-content: space-between;
+	.rule{
+		color: #fff;
+		font-size: 26px;
+		line-height: 44px;
+	}
+	.icon-music{
+		@include icon-set(44px,46px,'../images/music.png');
+		&.play{
+			animation: rotating 1.2s linear infinite;
+		}
+	}
+}
+
+.record-warp{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex: 11 1 auto;
+	width: 100%;
+	overflow: visible;
+	.icon-cloum{
+		@include icon-set(64px,42px,'../images/cloum.png');
+		position: absolute;
+		left: 4%;
+		top: 5px;
+		z-index: -1;
+	}
+	.icon-ballloon{
+		@include icon-set(49px,69px,'../images/ballloon.png');
+		position: absolute;
+		z-index: 2;
+		right: 3%;
+		top: 10px;
+	}
+	.icon-recordbtn{
+		@include icon-set(157px,156px,'../images/recordbtn.png');
+		position: absolute;
+		z-index: 2;
+		left: 50%;
+		top: -(156px/2);
+		margin-left: -(156px/2);
+		box-sizing: border-box;
+		padding-top: (156px-64px)/2;
+		line-height:32px;
+		color: #7c5302;
+		font-size: 26px;
+		text-align: center;
+		font-weight: bold;
+		&.has-record{
+			padding-top: (156px-32px)/2;
+		}
+	}
+	.top{
+		flex: 0 0 8.5vw;
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+		&:after{
+			content: '';
+			position: absolute;
+			left: -40%;
+			top: 0;
+			width: 180%;
+			padding-top: 100%;
+			border-radius: 50% 50% 0 0;
+			background: rgba(255,255,255,.4);
+		}
+	}
+	.calendar{
+		flex: 1;
+		background: rgba(255,255,255,.4);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		box-sizing: border-box;
+		font-size: 22px;
+		padding-top: 5px;
+		.main-content{
+			.info{
+				padding-top: 20px;
+				text-align: center;
+				.gold,.count {
+					color: #fff;
+					box-sizing: border-box;
+					line-height: 36px;
+				}
+				.count{
+					display: flex;
+					justify-content: space-between;
+					width: 400px;
+					margin: 2px auto;
+				}
+			}
+			.content{
+				width: 590px;
+				box-sizing: border-box;
+				margin-top: 10px;
+				padding: 20px;
+				border-radius: 5px;
+				color: #333;
+				background: #fff;
+				.time{
+					display: flex;
+					justify-content: space-between;
+					height: 2em;
+					line-height: 2em;
+					.record-limit{
+						padding: 0 20px;
+						background: #fce55e;
+						border-radius: 30px;
+					}
+				}
+				.calendar-table{
+					margin-top: 20px;
+					text-align: center;
+					vertical-align: middle;
+					&>thead>tr>th{
+						background: #31a9f3;
+						color: #fff;
+						font-weight: normal;
+						border:0;
+					}
+					&>tbody>tr>td{
+						position: relative;
+						width: (100%/7);
+						&.active{
+							&:after{
+								content: '';
+								color: #2ea7f3;
+								@include table-icon;
+								@include icon-set(23px,19px,'../images/icon-v.png');
+							}
+						}
+						&.unrecord{
+							&:after{
+								content: '';
+								color: #999;
+								@include table-icon;
+								@include icon-set(19px,18px,'../images/icon-x.png');
+							}
+						}
+						&.today.active{
+							.mark{
+								position: relative;
+								display: inline-block;
+								width: 32px;
+								height:32px;
+								line-height: 32px;
+								border-radius: 50%;
+								color: #fff;
+								background: #31a9f3;
+								&:after{
+									content: '';
+									position: absolute;
+									left: -(46px-32px)/2;
+									top: -(46px-32px)/2;
+									border-radius: 50%;
+									width: 46px;
+									height: 46px;
+									background: rgba(49,169,243,.3);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes rotating {
+	from{
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to{
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}

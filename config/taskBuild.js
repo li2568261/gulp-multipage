@@ -10,6 +10,7 @@ var path = require('path'),
 	uncss = require('gulp-uncss'), //根据html和引用的css删除冗余css样式
 	rev = require('gulp-rev'),//md5命名
 	spritesmith = require('gulp.spritesmith'), //雪碧图
+    px2rem = require('gulp-px3rem'),
 	rename = require("gulp-rename"), // rename重命名
   imagemin = require('gulp-imagemin'),  //图片压缩
   gulpif = require('gulp-if'),
@@ -47,8 +48,8 @@ module.exports = {
       .pipe(sass())
       .on('error', sass.logError)
       .pipe(autoprefixer()) //- 添加兼容性前缀
-      // .pipe(px2rem({remUnit: 75}))
-      // .pipe(base64({extensions: [/\.(jpg|png)#base64/i]}))  //后缀为#base64的小于32k的图片会被转为base64
+      .pipe(px2rem({remUnit: 64}))
+      .pipe(base64({extensions: [/\.(jpg|png)/i]}))  //小于32k的图片会被转为base64
       .pipe(cssnano()) //-压缩css
       .pipe(rename(_cssDistName))  //重命名css
       .pipe(gulpif( gulpEnv!="dev" , rev() ))
@@ -84,7 +85,7 @@ module.exports = {
     gulp.task(taskName,function(){
       gulp.src(_jsArr) //- 需要处理的js文件，放到一个字符串里
       .pipe(concat(_jsDistName)) //合并js
-      .pipe(uglify()) //-压缩混淆js
+      //.pipe(uglify()) //-压缩混淆js
       .pipe(gulpif( gulpEnv!="dev" , rev() ))
       .pipe(gulp.dest(_jsDistDir)) //- 处理得到的js文件发布到对应目录
       .pipe(gulpif( gulpEnv=="dev" ,connect.reload()))
@@ -95,11 +96,17 @@ module.exports = {
   /* img打包 */
   buildImg: function (src,dist) {
     var dist = dist || src;
+
+    gulp.src(path.join(src,'/**/*.+(mp3)'))
+          .pipe(gulp.dest(dist));
     return gulp.src(path.join(src,'/**/*.+(png|jpg|jpeg|gif|svg)'))
-    // Caching images that ran through imagemin
-    .pipe(imagemin({
-        interlaced: true,
-      }))
-    .pipe(gulp.dest(dist))
+            // Caching images that ran through imagemin
+        .pipe(imagemin({
+                interlaced: true,
+              }))
+        .pipe(gulpif( gulpEnv!="dev" , rev() ))
+        .pipe(gulp.dest(dist))
+        .pipe(gulpif( gulpEnv!="dev" ,rev.manifest()))
+        .pipe(gulpif( gulpEnv!="dev" ,gulp.dest(dist)));
   }
 }

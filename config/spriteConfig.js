@@ -15,7 +15,7 @@ var spriteConfigs = {};
 function spriteConfigSet(){
 	
 	//获取sprite路径
-	var	spritePath = path.join(libPath,'/images/sprite'),
+	var	spritePath = path.join(libPath,'/sprite'),
 	spriteList = fs.readdirSync(spritePath);
 
 	spriteList.forEach(function(spriteName,i){
@@ -27,7 +27,7 @@ function spriteConfigSet(){
 		var config = {
 			spritesSource : spritesSource,
 			spritesMithConfig: {
-			    //由于图片最终是要放到七牛上，这里的cssOpts用来当成最终scss文件中的变量名，详情看scss.template.mustache
+			    //这里的cssOpts用来当成最终scss文件中的变量名，详情看scss.template.mustache
 			    cssOpts: 'spriteSrc',
 			    imgName: imgName,
 			    cssName: cssName,

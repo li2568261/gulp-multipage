@@ -9,27 +9,32 @@ var libPath = dirDefault.libPath;
 
 var jsFileAlias = {
 	jq : path.join(libPath,"/js/jquery-1.9.1.min.js"),
-	libjs : path.join(libPath,"/js/lib.js")
+    commonjs : path.join(libPath,"/js/common.js"),
+    bscroll:path.join(libPath,"/js/bscroll.js")
 }
 
 var styleAlias = {
+    reset : path.join(libPath,"/scss/reset.scss"),
 	common : path.join(libPath,"/scss/base.scss"),
-	spriteMixin: path.join(libPath,"/scss/sprite-mixin.scss"),
-	aSprite : path.join(libPath,"/scss/a-sprite.scss"),
-	indexSprite : path.join(libPath,"/scss/index-sprite.scss")
+    dialog: path.join(libPath,"/scss/dialog.scss"),
+    sprite_mixin: path.join(libPath,'/scss/sprite-mixin.scss')
 }
 
 
 
 var allConfig = {
-	a:{
-		import_js:[jsFileAlias.jq,jsFileAlias.libjs],
-		import_style:[styleAlias.common]
-	},
 	index:{
-		import_js:[jsFileAlias.jq,jsFileAlias.libjs],
-		import_style:[styleAlias.common,styleAlias.spriteMixin,styleAlias.aSprite]
-	}
+		import_js:[jsFileAlias.jq,jsFileAlias.commonjs],
+		import_style:[styleAlias.reset,styleAlias.common,styleAlias.dialog]
+	},
+    rule:{
+        import_js:[jsFileAlias.jq,jsFileAlias.commonjs,jsFileAlias.bscroll],
+        import_style:[styleAlias.reset,styleAlias.common,styleAlias.dialog]
+    },
+    rank:{
+        import_js:[],
+        import_style:[styleAlias.reset,styleAlias.common]
+    }
 }
 
 

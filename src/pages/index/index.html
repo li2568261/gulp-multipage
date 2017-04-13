@@ -1,13 +1,122 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>打卡-首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="description">
+	<meta name="keywords" content="key1,key2,......">
 </head>
 <body>
 	<link rel="stylesheet" type="text/css" href="./css/index.min.css">
-	@import "header.html"
-	<h1>this index</h1>
-	<span class="icon-a"></span>
+    <div class="dialog" id="wait-animation">
+        <img src="../../images/wait-img.gif" class="wait-img" alt="等待动画">
+    </div>
+
+    <div class="flex-wrap">
+        <div class="record-top">
+            <a href="../rule/" class="rule">积分规则</a>
+            <span class="icon-music play">
+                <audio loop="loop" src="./images/music1.mp3" id="media" preload="preload"></audio>
+            </span>
+        </div>
+        <div class="record-warp">
+            <span class="icon-cloum"></span>
+            <span class="icon-ballloon"></span>
+            <span class="icon-recordbtn">
+                今日<br/>打卡
+            </span>
+            <div class="top">
+            </div>
+            <div class="calendar">
+                <div class="main-content">
+                    <div class="info">
+                        <p class="gold">我的积分：140</p>
+                        <div class="count">
+                            <div class="total">累计签到：5天</div>
+                            <div class="line">｜</div>
+                            <div class="repeat">连续签到：2天</div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="time">
+                        <span class="now">
+                            2017-04-06 05:33
+                        </span>
+                        <span class="record-limit">
+                            打卡时间 5:30-9:00
+                        </span>
+                        </div>
+                        <table class="table-bordered calendar-table">
+                            <thead>
+                            <tr>
+                                <th>日</th>
+                                <th>一</th>
+                                <th>二</th>
+                                <th>三</th>
+                                <th>四</th>
+                                <th>五</th>
+                                <th>六</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="active">1</td>
+                                <td class="unrecord">2</td>
+                                <td class="today">3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <img src="./images/bottomc.png" width="100%" class="bottom-image">
+            </div>
+        </div>
+    </div>
+
+    @import "record-dialog.html"
+    
+
 	<script type="text/javascript" src="./js/index.min.js"></script>
 </body>
 </html>

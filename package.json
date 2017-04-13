@@ -19,6 +19,7 @@
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.2.0",
     "gulp-open": "^1.0.0",
+    "gulp-prefix": "^0.0.15",
     "gulp-px3rem": "^0.2.2",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^7.1.2",
