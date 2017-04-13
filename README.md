@@ -17,6 +17,8 @@
 
     - 安装nodejs 本机采用v6.10.1版本;
 
+    - 全局安装gulp:npm install gulp -g
+
     - git clone git@github.com:li2568261/gulp-multipage.git;
 
     - 在当前目录下打开命令行（tips：按住shift点击鼠标右键可在菜单处快速打开）;
@@ -31,14 +33,16 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
 
 
     - src的lib目录存放公用资源:
-  
+
 
     ```
     目前主要包含三个目录:
 
     commonHtml存放页面公用部分
 
-    images存放相关图片，下面的sprite存放合成雪碧图相关图片
+    images存放相关图片
+
+    sprite存放合成雪碧图相关图片
 
     js存放js组件，以及一些通用方法
 
@@ -46,16 +50,30 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
 
         ├─commonHtml
         │      header.html
-        │      footer.html
+        │      record-dialog.html
+        │
         ├─images
-        │  └─sprite
-        │      ├─a
-        │      └─index
+        │     close.png
+        │     header-img.png
+        │     wait-img.gif
+        │
+        │
         ├─js
-        └─scss
+        │      bscroll.min.js
+        │      common.js
+        │      jquery-1.9.1.min.js
+        │      lib.js
+        ├─scss
+        │      a-sprite.scss
+        │      dialog.scss
+        │      index-sprite.scss
+        │      reset.scss
+        │      sprite-mixin.scss
+        │
+        └─sprite
     ```
-   
-   
+
+
     - pages目录不同的页面新建不同的文件夹，里面都存在相同的目录结构：
 
 
@@ -97,7 +115,7 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
         indexSprite : path.join(libPath,"/scss/index-sprite.scss")
     }
     //allConfig只需要添加需要额外加入的文件;"额外、额外、额外重要的事情说三遍"
-    
+
     //使用雪碧图请加入styleAlias.spriteMixin文件例index项下的import_style，"雪碧图+spriteMixin*3"
     var allConfig = {
         a:{
@@ -112,18 +130,14 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
 
 ```
 
-    
+
 #### 4. 资源导出目录
 
 
 >资源导出目录dist为文件资源导出目录，需要配合启动服务器进行处理分为两个文件夹，images和pages；images仅存放通用的图片资源。pages目录结构和资源目录一致
 
-#### 5. 代码的编写路径问题
 
->根据代码结构，建议在编写代码的过程中页面独有资源采用相对路径，获取公用资源建议采用绝对路径，绝对路径根目录为dist目录
-
-
-#### 6. 运行模式
+#### 7. 运行模式
 
 * 开发
 
