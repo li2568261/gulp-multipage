@@ -7,6 +7,8 @@ var gulp = require('gulp'),
   gulpOpen = require('gulp-open'), //用指定软件打开文件
   revCollector = require("gulp-rev-collector"),
   clean = require('gulp-clean'),
+  prefix = require('gulp-prefix'),
+  rev = require('gulp-rev'),//md5命名
   buildFuc = require('./config/taskBuild')
   dirDefault = require('./config/dirDefault'),
   pagesConfig = require('./config/pagesConfig'),
@@ -15,6 +17,7 @@ var gulp = require('gulp'),
 //存放各个目录的变量
 var srcPath = dirDefault.srcPath;
 var distPath = dirDefault.distPath;
+var pubPath = dirDefault.pubPath;
 var pagePath = dirDefault.pagePath;
 var libPath = dirDefault.libPath;
 
@@ -73,25 +76,25 @@ gulp.task("taskInit",function(){
         moduleConfig.page.name = key+"_html";
         moduleConfig.page.pagePath = path.join(pagePath,'/'+key+'/*.html');
         moduleConfig.page.commonHtmlPath=path.join(libPath,'/commonHtml/');
-        moduleConfig.page.distPath = path.join(distPath,'/pages/'+key+'/');
+        moduleConfig.page.distPath = path.join(distPath);
 
         pagesConfig[key].import_style.push(pagePath+'/'+key+'/scss/*.scss');
         moduleConfig.sass = {};
         moduleConfig.sass.name = key+'_sass';
         moduleConfig.sass._scssArr = pagesConfig[key].import_style;
         moduleConfig.sass._cssDistName = key+".min.css";
-        moduleConfig.sass._cssDistDir = path.join(distPath,'/pages/'+key+'/css/');
+        moduleConfig.sass._cssDistDir = path.join(distPath,'/css/');
 
         pagesConfig[key].import_js.push(pagePath+'/'+key+'/js/*.js');
         moduleConfig.js = {};
         moduleConfig.js.name = key+'_js';
         moduleConfig.js._jsArr = pagesConfig[key].import_js;
         moduleConfig.js._jsDistName = key+".min.js";
-        moduleConfig.js._jsDistDir = path.join(distPath,'/pages/'+key+'/js/');
+        moduleConfig.js._jsDistDir = path.join(distPath,'/js/');
 
         moduleConfig.images = {};
         moduleConfig.images.src_images = path.join(pagePath,'/'+key+'/images/');
-        moduleConfig.images.dist_images = path.join(distPath,'/pages/'+key+'/images/');
+        moduleConfig.images.dist_images = path.join(distPath,'/images/');
 
         buildModule(moduleConfig)
         taskArr.push(moduleConfig.js.name,moduleConfig.sass.name,moduleConfig.page.name);
@@ -108,20 +111,23 @@ gulp.task("moduleRun",['taskInit'],function(){
 
 /*---------------------------------------------*/
 
-
+gulp.task('md5',function(){
+  return gulp.src(path.join(distPath,"/**/*.*"))
+         .pipe(rev())
+         .pipe(gulp.dest(pubPath))
+         .pipe(rev.manifest({merge:true}))
+         .pipe(gulp.dest(pubPath));
+})
 //md5命替换
-gulp.task('rev', function () {
-  return gulp.src([path.join(distPath,'/**/*.json'),path.join(distPath,"/pages/**/*.+(html|css|js)")])
+gulp.task('rev',["md5"],function () {
+  return gulp.src([path.join(pubPath,'/**/*.json'),path.join(pubPath,"/**/*.+(html|css|js)")])
       .pipe(revCollector({
           replaceReved: true,
       }))
-      .pipe(gulp.dest(path.join(distPath,'/pages/')));
+      .pipe(gulp.dest(pubPath));
 })
 
-//添加根目录前缀
-gulp.task('prefix',function(){
 
-})
 
 gulp.task('pictureInit',['sprite','images'])
 
@@ -139,13 +145,11 @@ gulp.task('web', function() {
     }));
 });
 
-gulp.task('dist_clean',function(){
-  gulp.src(distPath)
+gulp.task("pub_clean",function(){
+  console.log(pubPath);
+  gulp.src(pubPath)
     .pipe(clean());
 })
-
-//发布
-gulp.task('pub',['pictureInit','moduleRun']);
 
 //开发
 gulp.task('dev',['pictureInit','moduleRun'],function(){

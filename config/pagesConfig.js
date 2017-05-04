@@ -9,13 +9,13 @@ var libPath = dirDefault.libPath;
 
 var jsFileAlias = {
 	jq : path.join(libPath,"/js/jquery-1.9.1.min.js"),
-    commonjs : path.join(libPath,"/js/common.js"),
+    videojs : path.join(libPath,"/js/video.js"),
     bscroll:path.join(libPath,"/js/bscroll.js")
 }
 
 var styleAlias = {
     reset : path.join(libPath,"/scss/reset.scss"),
-	common : path.join(libPath,"/scss/base.scss"),
+	video : path.join(libPath,"/scss/video-js.scss"),
     dialog: path.join(libPath,"/scss/dialog.scss"),
     sprite_mixin: path.join(libPath,'/scss/sprite-mixin.scss')
 }
@@ -23,18 +23,14 @@ var styleAlias = {
 
 
 var allConfig = {
-	index:{
-		import_js:[jsFileAlias.jq,jsFileAlias.commonjs],
-		import_style:[styleAlias.reset,styleAlias.common,styleAlias.dialog]
+	staff_list:{
+		import_js:[],
+		import_style:[styleAlias.reset]
 	},
-    rule:{
-        import_js:[jsFileAlias.jq,jsFileAlias.commonjs,jsFileAlias.bscroll],
-        import_style:[styleAlias.reset,styleAlias.common,styleAlias.dialog]
-    },
-    rank:{
-        import_js:[],
-        import_style:[styleAlias.reset,styleAlias.common]
-    }
+	staff_content:{
+		import_js:[jsFileAlias.videojs],
+		import_style:[styleAlias.reset,styleAlias.video]
+	}
 }
 
 
