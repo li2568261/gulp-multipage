@@ -56,7 +56,7 @@ gulp.task("images",function(){
 
 gulp.task('pages', function () {
     gulp.src(path.join(pagePath,'/**/*html'))
-        .pipe(htmlImport(path.join(libPath,'/commonHtml/')))
+        .pipe(htmlImport(path.join(libPath,'/components/')))
         .pipe(gulp.dest(path.join(distPath,'/pages/'))); 
 })
 
@@ -75,7 +75,7 @@ gulp.task("taskInit",function(){
         moduleConfig.page = {};
         moduleConfig.page.name = key+"_html";
         moduleConfig.page.pagePath = path.join(pagePath,'/'+key+'/*.html');
-        moduleConfig.page.commonHtmlPath=path.join(libPath,'/commonHtml/');
+        moduleConfig.page.commonHtmlPath=path.join(libPath,'/components/');
         moduleConfig.page.distPath = path.join(distPath);
 
         pagesConfig[key].import_style.push(pagePath+'/'+key+'/scss/*.scss');
@@ -140,7 +140,7 @@ gulp.task('web', function() {
   });
   gulp.src(__filename)
     .pipe(gulpOpen({
-      uri: 'http://localhost:8888/pages/index',
+      uri: 'http://localhost:8888/index.html',
       app: browser
     }));
 });
@@ -167,9 +167,9 @@ gulp.task('dev',['pictureInit','moduleRun'],function(){
     gulp.watch(curPathHtml,[pagename+'_html']);
   })
   
-  var libJs = path.join(libPath,'/js/*.js');
-  var libScss = path.join(libPath,'/scss/*.scss');
-  var libHtml = path.join(libPath,'/commonHtml/*.html')
+  var libJs = path.join(libPath,'/**/*.js');
+  var libScss = path.join(libPath,'/**/*.scss');
+  var libHtml = path.join(libPath,'/**/*.html')
   gulp.watch(libJs,jsTaskList);
   gulp.watch(libScss,sassTaskList);
   gulp.watch(libHtml,htmlTaskList);

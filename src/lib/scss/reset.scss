@@ -44,6 +44,7 @@ fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
 /* 注：optgroup 无法扶正 */
 button, input, select, textarea {
     font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+    outline: none;/* 谷歌去边框 */
 }
 
 /* 重置表格元素 */
@@ -61,3 +62,9 @@ hr {
 
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
 html { overflow-y: scroll; font-size: 10vw;}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}

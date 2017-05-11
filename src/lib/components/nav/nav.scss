@@ -1,0 +1,124 @@
+@mixin search-icon($width:30px,$height:30px,$vertical:top) {
+	&:after{
+		content: ' ';
+		display: inline-block;
+		vertical-align: $vertical;
+		width: $width;
+		height: $height;
+		background: url('../images/icon-search.png');
+		background-size: $width $height;
+	}
+}
+
+#nav{
+	position: relative;
+	z-index: 666;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    line-height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #e6eaf2;/* no */
+}
+
+$nav-color : #dbe0ea;
+.navbar-nav{
+	position: relative;
+    z-index: 2;
+	white-space:nowrap;
+	.navbar-item{
+		display: inline-block;
+	}
+	.navbar-link{
+		display: inline-block;
+		margin: 0 25px;
+		box-sizing: border-box;
+		color: #626b81;
+		&.active{
+			$active-color:#f38442;
+			position: relative;
+			color: $active-color;
+			&:after{
+				content: " ";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				border-bottom: 4px $active-color inset;
+			}
+			
+		}
+	}
+}
+
+.search-btn{
+	position: absolute;
+	z-index: 3;
+	right: 0;
+	top: 25px;
+	width: 78px;
+	height: 30px;
+	background: #fff;
+	box-sizing: border-box;
+	border-left: 2px solid $nav-color;
+	text-align: center;
+	box-shadow: -10px 0 20px #fff;
+	transform:translateZ(2px);
+	@include search-icon();
+}
+
+.search-dialog{
+	position: fixed;
+	left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 666;
+    transition : all .2s;
+    transform: translateY(-100vh);
+    background: rgba(0,0,0,.4);
+    .dialog-head{
+    	height: 90px;
+    	display: flex;
+    	justify-content: space-around;
+    	align-items: center;
+    	background: #fff;
+    }
+    $icon-vertical: baseline;
+    .search-icon{
+    	display: inline-block;
+    	width: 26px;
+    	height: 26px;
+    	margin-right: 20px;
+    	@include search-icon(26px,26px,top);
+    }
+    .search-input{
+		border: none;
+		width: 400px;
+	}
+	.close-icon{
+		display: inline-block;
+		width: 26px;
+		height: 26px;
+		&:after{
+			content: ' ';
+			display: inline-block;
+			width: 26px;
+			height: 26px;
+			background: url("../images/icon-cancel.png");
+			background-size: 26px 26px;
+		}
+	}
+    .search-bar{
+		display: flex;
+		align-items: center;
+		height: 60px;
+		padding: 0 20px;
+		border: 1px solid #e6eaf2;
+		border-radius: 5px;
+    }
+}

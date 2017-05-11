@@ -33,7 +33,7 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
 
 
     - src的lib目录存放公用资源:
-
+  
 
     ```
     目前主要包含三个目录:
@@ -72,8 +72,8 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
         │
         └─sprite
     ```
-
-
+   
+   
     - pages目录不同的页面新建不同的文件夹，里面都存在相同的目录结构：
 
 
@@ -115,7 +115,7 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
         indexSprite : path.join(libPath,"/scss/index-sprite.scss")
     }
     //allConfig只需要添加需要额外加入的文件;"额外、额外、额外重要的事情说三遍"
-
+    
     //使用雪碧图请加入styleAlias.spriteMixin文件例index项下的import_style，"雪碧图+spriteMixin*3"
     var allConfig = {
         a:{
@@ -130,7 +130,7 @@ ps：未翻墙的同学建议采用[cnpm](http://npm.taobao.org/)进行npm insta
 
 ```
 
-
+    
 #### 4. 资源导出目录
 
 

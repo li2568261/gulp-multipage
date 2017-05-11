@@ -1,0 +1,41 @@
+#scroll-warp{
+	position: relative;
+	height: 700px;
+}
+.scroll-area{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.course-list{
+	padding-bottom: 30px;
+}
+.course-item{
+	display: flex;
+	height: 165px;
+	justify-content: center;
+	align-items: center;
+	color: #626b81;
+	border-bottom: 1px solid #e6eaf2;
+	.part-right{
+		display: flex;
+		width: 336px;
+		height: 100px;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+.course-img{
+	margin-right: 20px;
+	width: 220px;
+	height: 126px;
+}
+.course-title{
+	font-size: 24px;
+	line-height: 32px;
+}
+.course-desc{
+	font-size: 20px;
+}
+

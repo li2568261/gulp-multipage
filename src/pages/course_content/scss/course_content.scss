@@ -1,0 +1,192 @@
+$font-color: #263642;
+$font-color2: #99a4bf;
+.content-banner{
+	width: 640px;
+	height: 320px;
+}
+.content-nav{
+	position: relative;
+	z-index: 5;
+	height: 70px;
+	line-height: 70px;
+	font-size: 0;
+	border-bottom: 1px solid #e6eaf2;
+	background: #fff;
+	.content-nav-item{
+		display: inline-block;
+		width: 320px;
+		text-align: center;
+		font-size: 22px;
+		color: $font-color;
+		&.active{
+			position: relative;
+			$active-color:#f38442;
+			color: $active-color;
+			&:after{
+				content: " ";
+				position: absolute;
+				bottom: 0px;
+				left: 70px;
+				width: 180px;
+				border-bottom: 3px solid $active-color;
+			}
+		}
+	}
+}
+
+.desc-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 125px;
+	
+	.part-left{
+		margin-left: 30px;
+	}
+	.part-right{
+		margin-right: 30px;
+		color: $font-color2;
+		text-align: center;
+		font-size: 20px;
+		line-height: 1.2;
+		.num{
+			font-size: 22px;
+			color: #f38442;
+		}
+	}
+	.content-title{
+		color:$font-color;
+		font-size: 24px;
+		font-weight: normal;
+		margin-bottom: 20px;
+	}
+	.star-bar{
+		font-size: 20px;
+		color: $font-color2;
+		[class^=icon-star]{
+			margin-right: 4px;
+		}
+		.gold{
+			margin-left: 15px;
+		}
+	}
+}
+
+.desc-context{
+	padding: 0 30px;
+	.desc-section{
+		padding: 30px 0;
+		border-bottom: 1px solid #e6eaf2;
+	}
+	.section-title{
+		margin-bottom: 10px;
+		font-size: 24px;
+		color: $font-color;
+		font-weight: normal;
+	}
+	.section-content{
+		font-size: 20px;
+		color: #70788c;
+		line-height: 34px;
+	}
+}
+
+.desc-list{
+	display: none;
+}
+.group-item{
+	
+	&.active{
+		.group-title{
+			&:after{
+				transform: rotate(90deg);
+			}
+		}
+	}
+	.video-list{
+		display: none;
+		background: #fff;
+	}
+	.group-title{
+		padding-left: 20px;
+		height: 74px;
+		line-height: 74px;
+		font-size: 22px;
+		font-weight: normal;
+		position: relative;
+		&:after{
+	        content: ' ';
+	        position: absolute;
+			top: 30px;
+	        right: 30px;
+			display: inline-block;
+			width: 12px;
+			height: 22px;
+			background: url('../images/icon-arrow.png');
+			background-size: 12px 22px;
+			transition: all .3s;
+			transform: rotate(270deg);
+	    }
+	}
+	
+	.video-item{
+		position: relative;
+		height: 80px;
+		line-height: 80px;
+		padding-left: 88px;
+		color: #626b81;
+		font-size: 22px;
+		&.active{
+			background: #fef2ec;
+			color: #f49562;
+			&:before{
+				border: 1px solid #f49562;
+			}
+		}
+		&:before{
+			content: "视频";
+			position: absolute;
+			left: 30px;
+			top: 28px;
+			width: 36px;
+			height: 24px;
+			line-height: 24px;
+			box-sizing: border-box;
+			text-align: center;
+			font-size: 14px;
+			border-radius: 5px;
+			border: 1px solid #626b81;
+		}
+	}
+}
+#course_video{
+	width: 640px;
+	height: 320px;
+}
+#desc-scroll{
+	position: relative;
+	z-index: 0;
+}
+.scroll-body{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+}
+.topview{
+	position: relative;
+	z-index: 3;
+}
+.content-wrap{
+	width: 1280px;
+	position: relative;
+	font-size: 0;
+	display: flex;
+	transition: all .3s;
+	background: #fff;
+	border-bottom: 20px solid #f2f4f7;
+	.switch-item{
+		width: 640px;
+	}
+}

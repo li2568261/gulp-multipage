@@ -81,7 +81,7 @@ module.exports = {
     gulp.task(taskName,function(){
       gulp.src(_jsArr) //- 需要处理的js文件，放到一个字符串里
       .pipe(concat(_jsDistName)) //合并js
-      .pipe(uglify()) //-压缩混淆js
+      //.pipe(uglify()) //-压缩混淆js
       .pipe(gulp.dest(_jsDistDir)) //- 处理得到的js文件发布到对应目录
       .pipe(gulpif( gulpEnv=="dev" ,connect.reload()))
     })

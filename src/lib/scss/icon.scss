@@ -1,0 +1,18 @@
+@mixin icon($name,$url,$width,$height) {
+	.#{$name}{
+		width: $width;
+		height: $height;
+		&:after{
+	        content: ' ';
+			display: inline-block;
+			width: $width;
+			height: $height;
+			background: url($url);
+			background-size: $width $height;
+	    }
+	}
+}
+
+@include  icon(icon-star-full,"../images/icon-star-full.png",20px,20px)
+@include  icon(icon-star-half,"../images/icon-star-half.png",20px,20px)
+@include  icon(icon-star-empty,"../images/icon-star-empty.png",20px,20px)
