@@ -1,0 +1,9 @@
+$spriteSrc:'/images/sprites/a.png';
+	$icon-a1 : 0px 0px 0px 0px 64px 64px 128px 88px $spriteSrc icon-a1;
+	$icon-a2 : 64px 0px -64px 0px 64px 64px 128px 88px $spriteSrc icon-a2;
+	$icon-a3 : 0px 64px 0px -64px 24px 24px 128px 88px $spriteSrc icon-a3;
+	$icon-a4 : 24px 64px -24px -64px 24px 24px 128px 88px $spriteSrc icon-a4;
+
+$spritesheet-sprites: $icon-a1 $icon-a2 $icon-a3 $icon-a4 ;
+
+@include sprites($spritesheet-sprites)

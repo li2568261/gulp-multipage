@@ -1,0 +1,8 @@
+$spriteSrc:'/images/sprites/index.png';
+	$icon-fork : 0px 0px 0px 0px 32px 32px 64px 64px $spriteSrc icon-fork;
+	$icon-github : 32px 0px -32px 0px 32px 32px 64px 64px $spriteSrc icon-github;
+	$icon-twitter : 0px 32px 0px -32px 32px 32px 64px 64px $spriteSrc icon-twitter;
+
+$spritesheet-sprites: $icon-fork $icon-github $icon-twitter ;
+
+@include sprites($spritesheet-sprites)

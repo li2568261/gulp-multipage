@@ -47,6 +47,7 @@ gulp.task("sprite",["spriteTaskListInit"],function(){
 })
 
 gulp.task("images",function(){
+  console.log(path.join(libPath,'/images/'),path.join(distPath,'/images/'));
   buildFuc.buildImg(path.join(libPath,'/images/'),path.join(distPath,'/images/'));
 })
 

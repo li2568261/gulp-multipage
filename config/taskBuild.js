@@ -94,9 +94,9 @@ module.exports = {
           .pipe(gulp.dest(dist));
     return gulp.src(path.join(src,'/**/*.+(png|jpg|jpeg|gif|svg)'))
             // Caching images that ran through imagemin
-        .pipe(imagemin({
-                interlaced: true,
-              }))
+        // .pipe(imagemin({
+        //         interlaced: true,
+        //       }))
         .pipe(gulp.dest(dist))
   }
 }

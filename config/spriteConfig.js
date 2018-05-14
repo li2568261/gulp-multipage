@@ -15,7 +15,7 @@ var spriteConfigs = {};
 function spriteConfigSet(){
 	
 	//获取sprite路径
-	var	spritePath = path.join(libPath,'/sprite'),
+	var	spritePath = path.join(libPath,'images/sprite'),
 	spriteList = fs.readdirSync(spritePath);
 
 	spriteList.forEach(function(spriteName,i){
@@ -48,5 +48,4 @@ function spriteConfigSet(){
 }
 
 spriteConfigSet();
-
 module.exports = spriteConfigs;
