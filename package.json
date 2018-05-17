@@ -32,7 +32,13 @@
     "gulp-uncss": "^1.0.5",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.5",
-    "gulp.spritesmith": "^6.2.1"
+    "gulp.spritesmith": "^6.2.1",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^7.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    
+  }
 }
